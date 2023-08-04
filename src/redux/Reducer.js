@@ -1,19 +1,26 @@
-const { ADD_TO_CART } = require("./constants");
+const {ADD_TO_CART, REMOVE_ITEM_IN_CART, SET_USER_DATA} = require('./constants');
 
+const initialState = [];
 
-const initialState = []
+export const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_TO_CART:
+      return [...state, action.data];
 
-export const reducer = (state = initialState , action) =>{
-switch(action.type){
-    case ADD_TO_CART: return [
+    case REMOVE_ITEM_IN_CART:
+      let deletItem = state.filter(item => {
+        return item.name != action.data
+       
+      });
+      return [...deletItem];
+
+    case SET_USER_DATA:
+      return [
         ...state,
-        action.payload
-    ]
+        action.data
+      ]
 
-    default: return state
-
-}
-}
-
-
-
+    default:
+      return state;
+  }
+};

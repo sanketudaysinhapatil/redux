@@ -2,6 +2,7 @@ import { Button, Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Header from './src/components/Header'
 import Product from './src/components/Product'
+import AppNavigator from './src/AppNavigator'
 // import Product from './src/components/Product'
 
 
@@ -28,18 +29,7 @@ const App = () => {
 
   ]
   return (
-    <View>
-      <Text>App</Text>
-      <Header/>
-      {productss.map((item , index)=>{
-        return(
-          <Product item={item}/>
-       )
-      })}
-      
-    
-      
-    </View>
+    <AppNavigator/>
   )
 }
 
